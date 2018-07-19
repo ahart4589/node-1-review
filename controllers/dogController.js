@@ -29,9 +29,11 @@ module.exports = {
         //req.params are all of the parameters on the url e.x /api/:id where :id is a placeholder value for each new request
         //req.query is the optional queries passed to us after /api/dogs?key=value&key2=value2 
         //req.query would look like this {key: 'value', key2: 'value'}
+        
         let {id} = req.params
         let {name, bark, cute} = req.query;
         for(let i = 0; i < dogs.length; i++) {
+            // Number is used becasue id is a string by default--needs to be converted
             if(dogs[i].id === Number(id)) {
                 if(name) dogs[i]['name'] = name;
                 if(bark) dogs[i]['bark'] = bark;
@@ -44,6 +46,10 @@ module.exports = {
         //Here we expect the request to have a json body. We expect it to be an object with a name, bark and cute property
         //using destructuring we create new variables.
         //we then add another property name id to our newdog using the id that we have defined in this file 
+        console.log('req.body', req.body)
+        console.log('req.params', req.params)
+        console.log('req.query', req.query)
+
         let {name, bark, cute} = req.body;
         let newDog = {
             name: name,

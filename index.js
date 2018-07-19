@@ -8,7 +8,7 @@ const app = express()
 app.use(bodyParser.json())
 
 //Routes 
-//We define a route, or endpoint by saying app.get, app.post e.t.c .get .post .put .delete are all options 
+//We define a route, or endpoint by saying app.get, app.post e.t.c .get .post .put .delete are all options.  /:id is called a parameter ?key=value or ?key=value?key2=value2 (dynamic placeholder)
 app.get('/api/dogs', dc.getDogs)
 app.put('/api/dogs/:id', dc.updateDog)
 app.post('/api/dogs', dc.createDog)
